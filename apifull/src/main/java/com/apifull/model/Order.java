@@ -1,5 +1,10 @@
 package com.apifull.model;
 
+import java.time.LocalDateTime;
+
+import jakarta.persistence.*;
+import lombok.*;
+
 @Entity
 @Table(name = "ORDERS")
 @Getter
