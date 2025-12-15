@@ -1,0 +1,7 @@
+package com.apifull.repository;
+
+import com.apifull.model.CartItem;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface CartItemRepository extends JpaRepository<CartItem, Long> {
+}
