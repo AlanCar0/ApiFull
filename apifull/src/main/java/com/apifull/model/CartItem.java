@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Table(name = "CART_ITEMS")
+@Table(name = "CART_ITEM")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -36,6 +36,5 @@ public class CartItem {
     private Integer quantity;
 
     @Column(nullable = false)
-    private Double price; // precio unitario al momento de agregar
-
+    private Double price;
 }

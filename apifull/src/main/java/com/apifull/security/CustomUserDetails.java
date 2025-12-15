@@ -18,10 +18,10 @@ public class CustomUserDetails implements UserDetails {
 
     public CustomUserDetails(User user) {
         this.id = user.getId();
-        this.username = user.getUsername();
+        this.username = user.getEmail();
         this.password = user.getPassword();
         this.authorities = List.of(
-                new SimpleGrantedAuthority("ROLE_" + user.getRole())
+                new SimpleGrantedAuthority(user.getRole())
         );
     }
 

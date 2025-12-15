@@ -11,7 +11,7 @@ import java.util.Date;
 public class JwtService {
 
     private static final String SECRET =
-            "CLAVE_SUPER_SECRETA_CAMBIALA_MINIMO_32_CHARS";
+            "kqbH4yIglRWNeknp9NUuI4hJhFSqCCi4lNN1UEmKgDtZ/4eRE65uD9ndFv9wWyKDpedQfRDThyKn/dC+mX+PVw==";
 
     private final Key key = Keys.hmacShaKeyFor(SECRET.getBytes());
 
@@ -21,7 +21,7 @@ public class JwtService {
                 .claim("userId", user.getId())
                 .claim("role", user.getAuthorities().iterator().next().getAuthority())
                 .setIssuedAt(new Date())
-                .setExpiration(new Date(System.currentTimeMillis() + 86400000)) // 1 día
+                .setExpiration(new Date(System.currentTimeMillis() + 86400000))
                 .signWith(key, SignatureAlgorithm.HS256)
                 .compact();
     }

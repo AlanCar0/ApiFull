@@ -16,8 +16,8 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, unique = true)
-    private String username;
+    @Column(nullable = false)
+    private String nombre; // ✅ AGREGAR ESTE CAMPO
 
     @Column(nullable = false)
     private String password;
@@ -29,6 +29,9 @@ public class User {
     private String rut;
 
     @Column(nullable = false)
+    private String phone;
+
+    @Column(nullable = false)
     @Builder.Default
-    private String role = "USER";
+    private String role = "ROLE_USER";
 }

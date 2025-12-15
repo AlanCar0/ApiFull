@@ -43,6 +43,7 @@ public class CartService {
                 .cart(cart)
                 .product(product)
                 .quantity(quantity)
+                .price(product.getPrice())
                 .build();
 
         cart.getItems().add(item);

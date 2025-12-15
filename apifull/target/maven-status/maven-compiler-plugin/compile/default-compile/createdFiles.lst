@@ -19,6 +19,7 @@ com/apifull/controller/CartController.class
 com/apifull/security/CustomUserDetails.class
 com/apifull/dto/OrderDto.class
 com/apifull/model/Cart.class
+com/apifull/dto/RegisterRequest.class
 com/apifull/service/UserService.class
 com/apifull/service/CartService.class
 com/apifull/model/User.class

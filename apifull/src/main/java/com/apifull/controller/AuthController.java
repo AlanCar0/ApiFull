@@ -2,6 +2,7 @@ package com.apifull.controller;
 
 import com.apifull.dto.AuthRequest;
 import com.apifull.dto.AuthResponse;
+import com.apifull.dto.RegisterRequest; // ✅ Crear este DTO
 import com.apifull.model.User;
 import com.apifull.security.CustomUserDetails;
 import com.apifull.security.JwtService;
@@ -25,7 +26,16 @@ public class AuthController {
     private final JwtService jwtService;
 
     @PostMapping("/register")
-    public ResponseEntity<User> register(@RequestBody User user) {
+    public ResponseEntity<User> register(@RequestBody RegisterRequest request) {
+        // ✅ Crear usuario desde DTO
+        User user = User.builder()
+                .nombre(request.getNombre())
+                .email(request.getEmail())
+                .password(request.getPassword())
+                .rut(request.getRut())
+                .phone(request.getPhone())
+                .build();
+        
         return ResponseEntity.ok(userService.register(user));
     }
 
@@ -35,7 +45,7 @@ public class AuthController {
     ) {
         Authentication auth = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
-                        request.getUsername(),
+                        request.getEmail(),
                         request.getPassword()
                 )
         );

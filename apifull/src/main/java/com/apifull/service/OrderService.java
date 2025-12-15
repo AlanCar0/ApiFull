@@ -35,12 +35,12 @@ public class OrderService {
             OrderItem orderItem = OrderItem.builder()
                     .order(order)
                     .productName(item.getProduct().getName())
-                    .price(item.getPrice())
+                    .price(item.getProduct().getPrice())
                     .quantity(item.getQuantity())
                     .build();
 
             orderItemRepository.save(orderItem);
-            total += item.getPrice() * item.getQuantity();
+            total += item.getProduct().getPrice() * item.getQuantity();
         }
 
         order.setTotal(total);
